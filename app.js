@@ -34,13 +34,27 @@ const addPhraseToDisplay = (phrase) => {
     }
 }
 
-addPhraseToDisplay(randomPhrase);
+if (randomPhrase) {
+    addPhraseToDisplay(randomPhrase);
+} else {
+    const randomPhrase = getRandomPhraseAsArray(phrases);
+}
+
 
 //check if a letter is in the phrase
-const checkLetter = (button) => {
-    const key = button.target;
-    const checkLetter = document.getElementsByClassName('letter');
+const checkLetter = (input) => {
+    const key = input;
+    const checkLetter = document.getElementsByClassName('letter')
     let match = 0;
+    let lettersArray = [];
+    for (let i=0;i<checkLetter.length;i++) {
+        lettersArray.push(checkLetter[i].textContent.toLowerCase());
+    }
+    console.log(lettersArray);
+    if (lettersArray.includes(key)) {
+        match = 1;
+    }
+    console.log(match);
     // for (let i=0;i<checkLetter.length;i++) {
     //     if (key === parseInt(checkLetter[i]) {
 
@@ -61,8 +75,14 @@ startButton.addEventListener('click', () => {
     hide.style.display = 'none';
 });
 
-// listen for the onscreen keyboard to be clicked
+//listen for the onscreen keyboard to be clicked
 qwerty.addEventListener('click', (e) => {
-
-
+    const button = e.target;
+    const letterClicked = button.textContent;
+    // if (button.className !== 'keyrow') {
+    //    console.log('no');
+    // } else {
+    //     console.log(letterClicked);
+    // }
+    checkLetter(letterClicked);
 });
