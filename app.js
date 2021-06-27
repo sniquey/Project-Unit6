@@ -65,7 +65,6 @@ const checkLetter = (input) => {
     for(let i=0;i<lettersLI.length;i++){
         // if the letter is equal to the button letter pressed AND the class name of that li is "letter"
         if (lettersLI[i].textContent.toLowerCase() === input.textContent && lettersLI[i].className === "letter") {
-            console.log(`match at position ${i}`)
             // change the class name from "letter" to "show" to display that letter
             lettersLI[i].className = "show";
             // add the letter to the match array
@@ -81,11 +80,9 @@ const checkLetter = (input) => {
             input.className = "chosen";
             missed++;
             heartsDisplay(missed);
-            console.log(missed);
             return missed;
         }
     }
-    console.log(match);
     checkWin();
     return match;
 }
