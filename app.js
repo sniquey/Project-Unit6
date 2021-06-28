@@ -93,7 +93,7 @@ const checkLetter = (input) => {
 
 // check if the game has been won or lost
 const checkWin = () => {
-    if (document.getElementsByClassName('show').length === document.getElementsByClassName('letter')) {
+    if (document.getElementsByClassName('show').length === document.getElementsByClassName('letter').length) {
         overlay.className = "win";
         overlay.style.display = "flex";
         h2.textContent = "You Win!";
