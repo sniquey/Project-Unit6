@@ -67,8 +67,8 @@ const checkLetter = (input) => {
         // if the letter is equal to the button letter pressed AND the class name of that li is "letter"
         if (lettersLI[i].textContent.toLowerCase() === input.textContent && lettersLI[i].className === "letter") {
             // change the class name from "letter" to "show" to display that letter
-            lettersLI[i].className = "show";
-            // add the letter to the match array
+             lettersLI[i].className += lettersLI[i].className ? ' show' : 'show';
+
             // add keyboard button class "chosen" on the letter
             input.className = "chosen";
             match.push(lettersLI[i].textContent);
@@ -93,7 +93,7 @@ const checkLetter = (input) => {
 
 // check if the game has been won or lost
 const checkWin = () => {
-    if (letters.length === 0) {
+    if (document.getElementsByClassName('show').length === document.getElementsByClassName('letter')) {
         overlay.className = "win";
         overlay.style.display = "flex";
         h2.textContent = "You Win!";
