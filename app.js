@@ -6,6 +6,7 @@ const startButton = document.querySelector('.btn__reset');
 const ul = document.getElementsByTagName('ul')[0];
 const ol = document.querySelector('ol');
 const h2 = document.querySelector('h2');
+const overlay = document.getElementById('overlay');
 let match = [];
 let lettersArray = [];
 let missed = 0;
@@ -50,7 +51,7 @@ for (let i=0;i<lettersLI.length;i++) {
 
 function heartsDisplay(missed) {
         if (missed === 5) {
-            overlay.style.className = "lose";
+            overlay.className = "lose";
             overlay.style.display = "flex";
             h2.textContent = "You Lose!";
             startButton.style.display = "none";
@@ -93,7 +94,7 @@ const checkLetter = (input) => {
 // check if the game has been won or lost
 const checkWin = () => {
     if (letters.length === 0) {
-        overlay.style.className = "win";
+        overlay.className = "win";
         overlay.style.display = "flex";
         h2.textContent = "You Win!";
         startButton.style.display = "none";
@@ -102,7 +103,6 @@ const checkWin = () => {
 
 //listen for the start game button to be pressed
 startButton.addEventListener('click', () => {
-    const overlay = document.querySelector('.start');
     overlay.style.display = 'none';
 });
 
