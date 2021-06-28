@@ -55,7 +55,7 @@ function heartsDisplay(missed) {
             h2.textContent = "You Lose!";
             startButton.style.display = "none";
         } else {
-            ol.children[missed - 1].style.display = "none";
+            ol.children[missed - 1].firstElementChild.setAttribute("src", "images/lostHeart.png");
         }
 }
 
